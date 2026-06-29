@@ -6,72 +6,65 @@
     <title>For Krishna ❤️</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     
-    <!-- GSAP Animation Library -->
+    <!-- GSAP for Cinematic Scroll Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: #050505;
+            background-color: #050002;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Animated Glowing Background Orbs */
-        .background-effects {
+        /* Dynamic Animated Gradient Background */
+        .bg-gradient {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            overflow: hidden;
-            background: radial-gradient(circle at center, #0a0a0a 0%, #000000 100%);
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: linear-gradient(45deg, #0a0005, #1f000b, #0a0005);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            z-index: -3;
         }
 
-        .orb {
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Fireflies */
+        #fireflies {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .firefly {
             position: absolute;
+            width: 4px; height: 4px;
+            background-color: #ff4d79;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.4;
-            animation: float 20s infinite ease-in-out alternate;
+            box-shadow: 0 0 12px #ff4d79, 0 0 25px #ff1e56;
+            animation: floatFly 10s linear infinite alternate;
         }
 
-        .orb-1 {
-            width: 300px; height: 300px;
-            background: #ff2a5f;
-            top: 10%; left: -10%;
+        @keyframes floatFly {
+            0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(50px) scale(1.5); opacity: 0; }
         }
 
-        .orb-2 {
-            width: 400px; height: 400px;
-            background: #7000ff;
-            bottom: -10%; right: -10%;
-            animation-delay: -5s;
-        }
-
-        .orb-3 {
-            width: 250px; height: 250px;
-            background: #ff7b9c;
-            top: 40%; left: 50%;
-            animation-delay: -10s;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 50px) scale(1.2); }
-        }
-
-        /* Section Styling */
+        /* Layout & Typography */
         section {
             min-height: 100vh;
             display: flex;
@@ -79,307 +72,366 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
+            padding: 0 25px;
             position: relative;
         }
 
         .content-box {
-            max-width: 600px;
+            max-width: 800px;
             width: 100%;
         }
 
-        h1, h2 {
+        .title {
             font-family: 'Playfair Display', serif;
-            font-weight: 500;
-            color: #ffffff;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
             background: linear-gradient(45deg, #ff7b9c, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
         }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #cccccc;
-            margin-bottom: 20px;
+        .text-note {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: #e0e0e0;
             font-weight: 300;
+            margin-bottom: 20px;
         }
 
-        .scroll-indicator {
+        /* Hinglish Shayari Styling */
+        .shayari {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.8rem;
+            line-height: 1.8;
+            color: #ff4d79;
+            text-shadow: 0 0 15px rgba(255, 77, 121, 0.4);
+            padding: 30px;
+            border-top: 1px solid rgba(255, 77, 121, 0.3);
+            border-bottom: 1px solid rgba(255, 77, 121, 0.3);
+            margin: 40px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+        }
+
+        /* The Beautiful Confession Note */
+        .deep-love-note {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.6rem;
+            line-height: 1.9;
+            color: #ff4d79;
+            text-shadow: 0 0 15px rgba(255, 77, 121, 0.3);
+            margin-bottom: 30px;
+        }
+
+        /* Scroll Indicator */
+        .scroll-down {
             position: absolute;
             bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             opacity: 0.7;
             animation: bounce 2s infinite;
-        }
-
-        .scroll-indicator span {
             font-size: 0.8rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 10px;
         }
 
-        .mouse {
-            width: 25px; height: 40px;
-            border: 2px solid #fff;
-            border-radius: 15px;
-            position: relative;
-        }
-
-        .wheel {
-            width: 4px; height: 8px;
-            background: #fff;
-            border-radius: 2px;
-            position: absolute;
-            top: 6px; left: 50%;
-            transform: translateX(-50%);
-            animation: scrollWheel 2s infinite;
-        }
+        .line { width: 1px; height: 40px; background: #fff; margin: 10px auto 0; }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-            40% { transform: translateY(-10px) translateX(-50%); }
-            60% { transform: translateY(-5px) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-7px) translateX(-50%); }
         }
 
-        @keyframes scrollWheel {
-            0% { top: 6px; opacity: 1; }
-            100% { top: 18px; opacity: 0; }
+        /* Single Tap Heart Interaction */
+        .unlock-container {
+            margin: 40px auto;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
         }
 
-        /* Glassmorphism Form */
+        .unlock-container:hover {
+            transform: scale(1.05);
+        }
+
+        #unlock-heart {
+            font-size: 5rem;
+            color: #ff1e56;
+            animation: heartbeat 1.5s infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 30, 86, 0.6));
+        }
+
+        .tap-hint {
+            margin-top: 20px;
+            color: #ff7b9c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Tap to Reveal Proposal */
+        .tap-proposal { cursor: pointer; display: flex; flex-direction: column; align-items: center; margin-top: 30px;}
+        .giant-heart { font-size: 5.5rem; animation: heartbeat 1.2s infinite; color: #ff1e56; filter: drop-shadow(0 0 30px rgba(255, 30, 86, 0.8));}
+        
+        #hidden-proposal { display: none; opacity: 0; margin-top: 30px; }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(1); }
+        }
+
+        /* Form Styling */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            width: 100%;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         textarea {
             width: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
             padding: 20px;
             border-radius: 12px;
             resize: none;
-            height: 140px;
-            font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
+            height: 150px;
+            font-size: 1.1rem;
+            font-family: inherit;
             margin-bottom: 20px;
-            transition: border-color 0.3s ease;
         }
 
-        textarea:focus {
-            outline: none;
-            border-color: #ff2a5f;
-        }
+        textarea:focus { outline: none; border-color: #ff1e56; }
 
         button {
-            background: linear-gradient(135deg, #ff2a5f, #ff7b9c);
-            color: white;
-            border: none;
-            padding: 16px 35px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(255, 42, 95, 0.3);
-            width: 100%;
+            background: linear-gradient(135deg, #ff1e56, #ff7b9c);
+            color: white; border: none; padding: 15px 40px; border-radius: 30px;
+            font-size: 1.2rem; font-family: 'Playfair Display', serif; font-style: italic;
+            cursor: pointer; transition: 0.3s; width: 100%;
+            box-shadow: 0 10px 20px rgba(255, 30, 86, 0.3);
         }
 
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(255, 42, 95, 0.5);
-        }
+        button:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(255, 30, 86, 0.5); }
 
-        /* Elements to animate via GSAP */
+        /* Finale Note */
+        #final-screen { display: none; opacity: 0; }
+        .signature { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #ff7b9c; margin-top: 40px; font-style: italic;}
+
         .gsap-reveal { opacity: 0; transform: translateY(50px); }
-
-        .signature {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.8rem;
-            color: #ff7b9c;
-            margin-top: 30px;
-        }
-
-        .heart-icon {
-            display: inline-block;
-            color: #ff2a5f;
-            animation: heartbeat 1.5s infinite;
-        }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            15% { transform: scale(1.3); }
-            30% { transform: scale(1); }
-            45% { transform: scale(1.3); }
-            60% { transform: scale(1); }
-        }
-
-        /* Final Screen */
-        #final-screen {
-            display: none;
-            opacity: 0;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Background Orbs -->
-    <div class="background-effects">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
+    <!-- Backgrounds -->
+    <div class="bg-gradient"></div>
+    <div id="fireflies"></div>
 
-    <!-- Section 1: The Hook -->
+    <!-- 1. The Opening -->
     <section>
         <div class="content-box">
-            <h1 class="hero-title gsap-reveal">Hey Krishna...</h1>
-            <p class="gsap-reveal">Every great story starts with an unexpected notification. Ours started with world map rotis, 5-star VIP reviews, and a girl who sleeps way too much.</p>
+            <h1 class="title gsap-reveal">Hey Krishna...</h1>
+            <p class="text-note gsap-reveal">Just stop for a second. Take a deep breath.<br>And scroll down slowly.</p>
         </div>
-        <div class="scroll-indicator gsap-reveal">
-            <span>Scroll</span>
-            <div class="mouse"><div class="wheel"></div></div>
+        <div class="scroll-down gsap-reveal"><span>Scroll</span><div class="line"></div></div>
+    </section>
+
+    <!-- 2. The Realization -->
+    <section>
+        <div class="content-box">
+            <h2 class="title gsap-reveal" style="font-size: 2.8rem;">They say connections take time...</h2>
+            <p class="text-note gsap-reveal">But sometimes, someone walks into your life out of nowhere, and suddenly, everything just clicks.</p>
+            <p class="text-note gsap-reveal">Since the day we started talking, you've become the notification I wait for the most.</p>
         </div>
     </section>
 
-    <!-- Section 2: The Build Up -->
+    <!-- 3. Shayari 1 -->
     <section>
         <div class="content-box">
-            <h2 class="hero-title gsap-reveal" style="font-size: 2.5rem;">It's crazy, isn't it?</h2>
-            <p class="gsap-reveal">How you can talk to someone for just a few days, and suddenly, they become your favorite part of the day.</p>
-            <p class="gsap-reveal">I didn't plan for this. But talking to you just feels... right.</p>
+            <div class="shayari gsap-reveal">
+                "Tumhari ek muskurahat pe yeh dil haar gaye hum,<br>
+                Na chahte hue bhi tumse itna pyaar kar gaye hum..."
+            </div>
+            <p class="text-note gsap-reveal">I didn't plan for this. But talking to you just feels so right.</p>
         </div>
     </section>
 
-    <!-- Section 3: The Confession -->
+    <!-- 4. The Interactive Unlock (Single Tap) -->
     <section>
         <div class="content-box">
-            <h2 class="hero-title gsap-reveal" style="font-size: 3rem;">So, here is the truth.</h2>
-            <p class="gsap-reveal">They say you shouldn't rush things. But when you know, you know.</p>
-            <p class="gsap-reveal">I've completely fallen for your vibe, your attitude, and that smile I imagine you have when you read my texts.</p>
-            <h2 class="hero-title gsap-reveal" style="font-size: 2.8rem; margin-top: 20px; color: #ff2a5f;">I love you, Krishna.</h2>
-        </div>
-    </section>
-
-    <!-- Section 4: The Input (Glassmorphism Form) -->
-    <section id="input-section">
-        <div class="content-box glass-card gsap-reveal">
-            <h2 style="font-size: 2rem; margin-bottom: 15px;">Now, it's your turn.</h2>
-            <p style="font-size: 0.95rem;">I put my heart on the screen. What is going on in that head of yours? Tell me exactly how you feel.</p>
+            <h2 class="title gsap-reveal" style="font-size: 2.8rem;">Before I say the big thing...</h2>
+            <p class="text-note gsap-reveal">I need you to open my heart.</p>
             
-            <form id="confessionForm">
-                <!-- REPLACE THIS WITH YOUR WEB3FORMS KEY -->
+            <div class="unlock-container gsap-reveal" id="tap-container" onclick="unlockChapter()">
+                <div id="unlock-heart">❤️</div>
+                <div class="tap-hint">Tap once to unlock</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Shayari 2 & The Build up (Hidden until unlocked) -->
+    <section id="post-unlock-section" style="display: none; opacity: 0;">
+        <div class="content-box">
+            <div class="shayari gsap-reveal">
+                "Aankhon mein basi ho tum, dhadkan mein chhipi ho,<br>
+                Sach kahun toh... meri jeene ki wajah ban gayi ho tum."
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. The Grand Proposal -->
+    <section id="proposal-section" style="display: none; opacity: 0;">
+        <div class="content-box">
+            <h2 class="title gsap-reveal" style="font-size: 2.8rem;">So here is the truth.</h2>
+            <p class="text-note gsap-reveal">I don't want to be just someone you talk to. I want to be yours.</p>
+            
+            <div class="tap-proposal gsap-reveal" onclick="revealProposal()">
+                <div class="giant-heart">💖</div>
+                <div class="tap-hint">Tap one last time</div>
+            </div>
+
+            <div id="hidden-proposal">
+                <p class="deep-love-note">
+                    "I never planned for this to happen so fast, but you came in and completely stole my attention. With every text, every smile, and every little moment we share, I realize you are exactly what I’ve been looking for. I don't just love talking to you, Krishna... I love *you*. I want to be the one who protects your smile, listens to your stories, and holds your hand through everything."
+                </p>
+                <p class="title" style="font-size: 2.8rem; color: #fff; margin-top: 30px;">Will you be mine?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Her Response (Form) -->
+    <section id="input-section" style="display: none; opacity: 0;">
+        <div class="content-box glass-card">
+            <h2 class="title" style="font-size: 2.2rem;">Now, tell me...</h2>
+            <p class="text-note" style="font-size: 1.1rem;">I just gave you my entire heart. What is going on in your mind right now? Tell me everything.</p>
+            <form id="feelingsForm">
+                <!-- INSERT WEB3FORMS KEY HERE -->
                 <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
-                <input type="hidden" name="subject" value="Krishna's Confession ❤️">
+                <input type="hidden" name="subject" value="Krishna's Proposal Reply ❤️">
                 
-                <textarea name="Her_Feelings" placeholder="Write your feelings here... don't be shy." required></textarea>
+                <textarea name="Her_Feelings" placeholder="Write exactly what you feel for me..." required></textarea>
                 <button type="submit" id="submitBtn">Send to Sagnick</button>
             </form>
         </div>
     </section>
 
-    <!-- Section 5: The Finale -->
+    <!-- 8. The Grand Finale -->
     <section id="final-screen">
         <div class="content-box">
-            <h2 class="hero-title" style="font-size: 2.5rem;">Message Received ✨</h2>
-            <p style="font-size: 1.2rem;">Whatever you just wrote... I can't wait to read it.</p>
-            <p>Thank you for making the last few days so incredibly special. This is just the beginning of our story.</p>
+            <h2 class="title" style="font-size: 3.5rem;">Message Sent ✨</h2>
+            <p class="text-note" style="font-size: 1.4rem;">Whatever you just wrote, I promise to keep it safe forever.</p>
+            <p class="text-note" style="font-size: 1.4rem;">Thank you for giving me butterflies, for making me smile at my phone like an idiot, and for being exactly who you are.</p>
+            
             <div class="signature">
-                by your sagnick <span class="heart-icon">❤️</span>
+                By Your Sagnick ❤️
             </div>
         </div>
     </section>
 
-    <!-- Scripts for GSAP & Form Submission -->
+    <!-- SCRIPTS -->
     <script>
-        // Initialize GSAP ScrollTrigger
+        // 1. Generate Fireflies Background
+        const firefliesContainer = document.getElementById('fireflies');
+        for (let i = 0; i < 40; i++) {
+            let fly = document.createElement('div');
+            fly.classList.add('firefly');
+            fly.style.left = Math.random() * 100 + 'vw';
+            fly.style.top = Math.random() * 100 + 'vh';
+            fly.style.animationDuration = (Math.random() * 10 + 5) + 's';
+            fly.style.animationDelay = (Math.random() * 5) + 's';
+            firefliesContainer.appendChild(fly);
+        }
+
+        // 2. Initialize GSAP Scroll Animations
         gsap.registerPlugin(ScrollTrigger);
-
-        // Animate all elements with the class 'gsap-reveal'
-        const revealElements = document.querySelectorAll('.gsap-reveal');
-        
-        revealElements.forEach((element) => {
-            gsap.to(element, {
-                scrollTrigger: {
-                    trigger: element,
-                    start: "top 85%", // Triggers when the top of the element hits 85% of the viewport height
-                    toggleActions: "play none none reverse"
-                },
-                opacity: 1,
-                y: 0,
-                duration: 1.2,
-                ease: "power3.out"
+        function initGSAP() {
+            const elements = document.querySelectorAll('.gsap-reveal');
+            elements.forEach((el) => {
+                gsap.to(el, {
+                    scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" },
+                    opacity: 1, y: 0, duration: 1.2, ease: "power3.out"
+                });
             });
-        });
+        }
+        initGSAP();
 
-        // Form Submission Logic
-        const form = document.getElementById('confessionForm');
+        // 3. Single Tap Logic (To Unlock Chapter)
+        function unlockChapter() {
+            const container = document.getElementById('tap-container');
+            container.style.cursor = 'default';
+            container.querySelector('.tap-hint').innerText = "Heart Unlocked ✨";
+            container.onclick = null; // Disable further clicks
+
+            // Reveal the rest of the website
+            document.getElementById('post-unlock-section').style.display = 'flex';
+            document.getElementById('proposal-section').style.display = 'flex';
+            gsap.to(['#post-unlock-section', '#proposal-section'], {opacity: 1, duration: 1.5});
+            initGSAP(); // re-init gsap for new sections
+            
+            // Smoothly scroll to the newly unlocked section
+            setTimeout(() => {
+                window.scrollTo({
+                    top: document.getElementById('post-unlock-section').offsetTop,
+                    behavior: 'smooth'
+                });
+            }, 500);
+        }
+
+        // 4. Reveal Final Proposal Logic
+        function revealProposal() {
+            const tapDiv = document.querySelector('.tap-proposal');
+            const hiddenDiv = document.getElementById('hidden-proposal');
+            
+            gsap.to(tapDiv, {opacity: 0, scale: 0.8, duration: 0.5, onComplete: () => {
+                tapDiv.style.display = 'none';
+                hiddenDiv.style.display = 'block';
+                gsap.to(hiddenDiv, {opacity: 1, duration: 1});
+                
+                // Show form immediately after proposal
+                document.getElementById('input-section').style.display = 'flex';
+                gsap.to('#input-section', {opacity: 1, duration: 1.5, delay: 1.5});
+                initGSAP();
+            }});
+        }
+
+        // 5. Form Submission Logic
+        const form = document.getElementById('feelingsForm');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const submitBtn = document.getElementById('submitBtn');
-            submitBtn.innerText = "Sending my heart...";
+            submitBtn.innerText = "Sending my love...";
             submitBtn.style.opacity = "0.7";
 
             const formData = new FormData(form);
             const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-
-            // Send data silently
+            
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                // Hide input section, show finale, and smooth scroll to it
-                const inputSection = document.getElementById('input-section');
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(object)
+            }).then(() => {
+                const inputSec = document.getElementById('input-section');
                 const finalScreen = document.getElementById('final-screen');
                 
-                gsap.to(inputSection, {opacity: 0, duration: 0.5, onComplete: () => {
-                    inputSection.style.display = 'none';
+                gsap.to(inputSec, {opacity: 0, duration: 0.8, onComplete: () => {
+                    inputSec.style.display = 'none';
                     finalScreen.style.display = 'flex';
-                    
-                    // Reveal the final screen beautifully
-                    gsap.to(finalScreen, {opacity: 1, duration: 1});
-                    
-                    // Scroll exactly to the finale
-                    window.scrollTo({
-                        top: finalScreen.offsetTop,
-                        behavior: 'smooth'
-                    });
+                    gsap.to(finalScreen, {opacity: 1, duration: 1.5});
+                    window.scrollTo({ top: finalScreen.offsetTop, behavior: 'smooth' });
                 }});
-            })
-            .catch(error => {
-                console.log(error);
-                submitBtn.innerText = "Send to Sagnick";
-                submitBtn.style.opacity = "1";
             });
         });
     </script>
 </body>
-  </html>
-
+</html>
